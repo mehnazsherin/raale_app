@@ -1,0 +1,248 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<title>Raale Coins</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+<style>
+*{box-sizing:border-box}
+body{
+  margin:0;
+  font-family:'Inter',sans-serif;
+  background:#f4f6f8;
+  color:#1f2937;
+}
+
+/* ===== TOP BAR ===== */
+.topbar{
+  background:white;
+  padding:16px 32px;
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  box-shadow:0 1px 0 rgba(0,0,0,.05);
+}
+
+.logo{
+  font-weight:700;
+  font-size:20px;
+}
+.logo span:nth-child(1){color:#7c3aed}
+.logo span:nth-child(2){color:#f59e0b}
+
+.btn{
+  border:1px solid #e5e7eb;
+  background:white;
+  padding:8px 14px;
+  border-radius:10px;
+  font-weight:500;
+  cursor:pointer;
+}
+
+/* ===== CONTAINER ===== */
+.container{
+  max-width:1100px;
+  margin:32px auto;
+  padding:0 24px;
+}
+
+/* ===== HIDDEN VIEWS ===== */
+.view{display:none}
+.view.active{display:block}
+
+/* ===== DASHBOARD ===== */
+.main-card{
+  background:white;
+  border-radius:20px;
+  box-shadow:0 20px 40px rgba(0,0,0,.08);
+  overflow:hidden;
+}
+.main-top{
+  background:linear-gradient(90deg,#7c3aed,#a78bfa);
+  padding:24px;
+  color:white;
+}
+.main-bottom{
+  padding:24px;
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+}
+.coins{
+  font-size:48px;
+  font-weight:700;
+}
+.level-pill{
+  background:#ecfdf5;
+  color:#16a34a;
+  padding:8px 14px;
+  border-radius:999px;
+}
+.motivation{
+  margin-top:16px;
+  background:#fff7ed;
+  padding:14px;
+  border-radius:12px;
+  text-align:center;
+}
+.stats{
+  display:grid;
+  grid-template-columns:1fr 1fr;
+  gap:20px;
+  margin-top:24px;
+}
+.stat-card{
+  background:white;
+  padding:20px;
+  border-radius:16px;
+  box-shadow:0 10px 25px rgba(0,0,0,.06);
+}
+.activity{
+  margin-top:24px;
+  background:white;
+  padding:32px;
+  border-radius:20px;
+  text-align:center;
+  color:#6b7280;
+}
+
+/* ===== LEADERBOARD ===== */
+.lb-header{
+  display:flex;
+  align-items:center;
+  gap:12px;
+  font-weight:600;
+}
+.back{
+  cursor:pointer;
+}
+.filter{
+  margin-top:24px;
+  background:white;
+  padding:20px;
+  border-radius:16px;
+}
+.rankings{
+  margin-top:24px;
+  background:white;
+  padding:20px;
+  border-radius:16px;
+}
+.rank-row{
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  border:2px solid #a78bfa;
+  padding:16px;
+  border-radius:14px;
+}
+.rank-left{
+  display:flex;
+  align-items:center;
+  gap:12px;
+}
+.badge{
+  width:36px;
+  height:36px;
+  border-radius:50%;
+  background:#fde68a;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+}
+.you{
+  background:#ede9fe;
+  color:#7c3aed;
+  padding:4px 8px;
+  border-radius:8px;
+  font-size:12px;
+}
+</style>
+</head>
+
+<body>
+
+<!-- TOP BAR -->
+<div class="topbar">
+  <div class="logo"><span>Raale</span> <span>Coins</span></div>
+  <button class="btn" onclick="showLeaderboard()">🏆 Leaderboard</button>
+</div>
+
+<div class="container">
+
+  <!-- DASHBOARD -->
+  <div id="dashboard" class="view active">
+    <div class="main-card">
+      <div class="main-top">
+        <p>Welcome back,</p>
+        <h2>mehnaz sherin</h2>
+        <p>mehnazsherin.ecs25@rathinam.in</p>
+      </div>
+      <div class="main-bottom">
+        <div class="coins">0</div>
+        <div class="level-pill">🌱 Beginner Lv.1</div>
+      </div>
+    </div>
+
+    <div class="motivation">
+      🌱 Every journey starts with a single step!
+    </div>
+
+    <div class="stats">
+      <div class="stat-card">📈 Level Progress<br><strong>1</strong></div>
+      <div class="stat-card">🎯 Next Level<br><strong>100 coins</strong></div>
+    </div>
+
+    <div class="activity">
+      <h3>Recent Activity</h3>
+      <p>No transactions yet<br>Your coin history will appear here</p>
+    </div>
+  </div>
+
+  <!-- LEADERBOARD -->
+  <div id="leaderboard" class="view">
+    <div class="lb-header">
+      <span class="back" onclick="showDashboard()">←</span>
+      <span>🏆 Leaderboard</span>
+    </div>
+
+    <div class="filter">
+      <strong>Filter By</strong><br><br>
+      All Departments &nbsp;&nbsp; All Batches
+    </div>
+
+    <div class="rankings">
+      <h3>Rankings</h3><br>
+      <div class="rank-row">
+        <div class="rank-left">
+          <div class="badge">👑</div>
+          <div>
+            <strong>mehnaz sherin</strong>
+            <span class="you">You</span>
+          </div>
+        </div>
+        <div>
+          <strong>0</strong><br>
+          <small>Level 1</small>
+        </div>
+      </div>
+    </div>
+  </div>
+
+</div>
+
+<script>
+function showLeaderboard(){
+  dashboard.classList.remove("active");
+  leaderboard.classList.add("active");
+}
+function showDashboard(){
+  leaderboard.classList.remove("active");
+  dashboard.classList.add("active");
+}
+</script>
+
+</body>
+</html>
